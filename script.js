@@ -16,7 +16,6 @@ $(document).ready(function () {
   image.onload = function () {
     var width = image.width;
     var height = image.height;
-    console.log(width, height);
     var canvas = $('#test')[0];
     var context = canvas.getContext('2d');
     canvas.width = width;
@@ -24,9 +23,10 @@ $(document).ready(function () {
     context.drawImage(image, 0, 0);
     var imageData = context.getImageData(0, 0, width, height);
     var getPixel = getPixelMaker(imageData);
-    for (var i = 0; i < 4; i++) { 
-      console.log('col:', i);
-      console.log(getPixel(0, i, 0), getPixel(0, i, 1), getPixel(0, i, 2));
+    var row = 150;
+    for (var i = 0; i < 20; i++) { 
+      console.log('row:', row, 'col:', i);
+      console.log(getPixel(row, i, 0), getPixel(row, i, 1), getPixel(row, i, 2));
     }
 
   };
