@@ -1,8 +1,12 @@
 $(document).ready(function () {
   var image = new Image();
 
-  //var url = 'http://sipi.usc.edu/database/preview/misc/4.2.04.png';
-  var url = 'lenna.png';
+  if (document.location.hash === '#remote') {
+    var url = 'http://sipi.usc.edu/database/preview/misc/4.2.04.png';
+  }
+  else {
+    var url = 'lenna.png';
+  }
   if (url.indexOf('http:\/\/') === 0) {
     //if url starts with http://, remove the http:// and send to proxy
     url = url.replace('http://', '');
